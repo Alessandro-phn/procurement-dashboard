@@ -3,79 +3,228 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Procurement Analytics Dashboard</title>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <title>Procurement Analytics Dashboard | Alessandro Guimarães Pereira</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <header class="hero">
-    <div>
-      <span class="eyebrow">Jan – Jun 2024 · Atualizado</span>
-      <h1>Procurement Analytics Dashboard</h1>
-      <p>Visão executiva de compras, savings, fornecedores, lead time e performance de negociação.</p>
-    </div>
-    <a class="button" href="#insights">Ver insights</a>
+    <nav class="nav">
+      <div class="brand">
+        <span class="logo">PA</span>
+        <div>
+          <strong>Procurement Analytics</strong>
+          <small>Dashboard Executivo</small>
+        </div>
+      </div>
+      <div class="menu">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#savings">Savings</a>
+        <a href="#fornecedores">Fornecedores</a>
+        <a href="#insights">Insights</a>
+        <a href="#case">Case</a>
+      </div>
+    </nav>
+
+    <section class="hero-content">
+      <div>
+        <p class="eyebrow">Strategic Sourcing | Procurement | Supply Chain Analytics</p>
+        <h1>Procurement Analytics Dashboard</h1>
+        <p class="subtitle">
+          Um projeto de portfólio para demonstrar como dados podem apoiar decisões de Compras,
+          gerar savings, reduzir riscos e melhorar a performance de fornecedores.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#dashboard">Ver Dashboard</a>
+          <a class="button secondary" href="https://www.linkedin.com/" target="_blank">Conecte-se comigo</a>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <p>Developed by</p>
+        <h2>Alessandro Guimarães Pereira</h2>
+        <span>Compras Estratégicas | Analytics | Supply Chain</span>
+      </div>
+    </section>
   </header>
 
-  <main class="container">
-    <section class="kpi-grid" aria-label="Indicadores principais">
-      <article class="card kpi"><span>Spend Total</span><strong>R$ 5,0M</strong><small>Volume acumulado no semestre</small></article>
-      <article class="card kpi positive"><span>Savings Acumulado</span><strong>R$ 320K</strong><small>6,4% do spend total</small></article>
-      <article class="card kpi"><span>ROI da Área</span><strong>12,8×</strong><small>Retorno sobre investimento</small></article>
-      <article class="card kpi"><span>Pedidos Emitidos</span><strong>1.250</strong><small>Ordens de compra</small></article>
-      <article class="card kpi"><span>Fornecedores Ativos</span><strong>180</strong><small>Base homologada</small></article>
-      <article class="card kpi warning"><span>Lead Time Médio</span><strong>12 dias</strong><small>Ciclo médio de abastecimento</small></article>
+  <main>
+    <section id="dashboard" class="section">
+      <div class="section-title">
+        <p>Visão Executiva</p>
+        <h2>Indicadores principais de Compras</h2>
+      </div>
+
+      <div class="kpi-grid">
+        <article class="kpi-card">
+          <span>Spend Total</span>
+          <strong>R$ 5,0 mi</strong>
+          <small>Volume anual analisado</small>
+        </article>
+        <article class="kpi-card success">
+          <span>Savings acumulado</span>
+          <strong>R$ 320 mil</strong>
+          <small>Economia estimada</small>
+        </article>
+        <article class="kpi-card">
+          <span>Saving médio</span>
+          <strong>6,4%</strong>
+          <small>Redução média de custos</small>
+        </article>
+        <article class="kpi-card">
+          <span>Fornecedores ativos</span>
+          <strong>180</strong>
+          <small>Base de fornecimento</small>
+        </article>
+        <article class="kpi-card warning">
+          <span>Lead Time médio</span>
+          <strong>12 dias</strong>
+          <small>Ciclo médio de compras</small>
+        </article>
+        <article class="kpi-card success">
+          <span>ROI de Compras</span>
+          <strong>12,8x</strong>
+          <small>Retorno estimado da área</small>
+        </article>
+      </div>
     </section>
 
-    <section class="grid two-cols">
-      <article class="card chart-card">
-        <div class="section-title">
-          <div><h2>Orçado vs Realizado</h2><p>Evolução mensal de custos</p></div>
-          <span class="badge">-2,5% avg</span>
+    <section class="section">
+      <div class="impact-box">
+        <div>
+          <p class="eyebrow">Impactos Financeiros</p>
+          <h2>Resultados simulados com base em uma operação de compras</h2>
+        </div>
+        <div class="impact-grid">
+          <div><strong>R$ 320 mil</strong><span>Economia acumulada</span></div>
+          <div><strong>42</strong><span>Contratos renegociados</span></div>
+          <div><strong>45 dias</strong><span>Prazo médio de pagamento</span></div>
+          <div><strong>30%</strong><span>Maior saving por categoria</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="savings" class="section grid-2">
+      <div class="chart-card">
+        <div class="card-header">
+          <h3>Savings por Categoria</h3>
+          <p>Comparativo entre gasto anterior e gasto atual.</p>
+        </div>
+        <canvas id="savingsChart"></canvas>
+      </div>
+
+      <div class="chart-card">
+        <div class="card-header">
+          <h3>Spend por Categoria</h3>
+          <p>Distribuição do gasto por família de compras.</p>
+        </div>
+        <canvas id="spendChart"></canvas>
+      </div>
+    </section>
+
+    <section class="section grid-2">
+      <div class="chart-card">
+        <div class="card-header">
+          <h3>Evolução de Custos</h3>
+          <p>Orçado x realizado ao longo dos meses.</p>
         </div>
         <canvas id="costChart"></canvas>
-      </article>
-
-      <article class="card chart-card">
-        <div class="section-title"><div><h2>Savings por Categoria</h2><p>% de redução por área</p></div></div>
-        <canvas id="savingsChart"></canvas>
-      </article>
-    </section>
-
-    <section class="grid three-cols">
-      <article class="card">
-        <div class="section-title"><div><h2>Curva ABC</h2><p>Classificação por gasto</p></div></div>
-        <table>
-          <thead><tr><th>Fornecedor</th><th>Classe</th><th>Gasto</th></tr></thead>
-          <tbody id="abcTable"></tbody>
-        </table>
-      </article>
-
-      <article class="card">
-        <div class="section-title"><div><h2>Score Fornecedores</h2><p>Prazo · Qualidade · Score</p></div></div>
-        <div id="supplierList" class="supplier-list"></div>
-      </article>
-
-      <article class="card">
-        <div class="section-title"><div><h2>Lead Time</h2><p>Ciclo total: 12 dias</p></div></div>
-        <div id="leadTimeList" class="timeline"></div>
-      </article>
-    </section>
-
-    <section id="insights" class="card insights">
-      <div class="section-title"><div><h2>Indicadores de Negociação</h2><p>Resultados acumulados H1 2024</p></div></div>
-      <div class="negotiation-grid">
-        <div><strong>8,5%</strong><span>Saving médio por negociação</span></div>
-        <div><strong>42</strong><span>Contratos renegociados</span></div>
-        <div><strong>R$ 320K</strong><span>Economia anualizada</span></div>
-        <div><strong>45 dias</strong><span>Prazo médio de pagamento</span></div>
       </div>
-      <p class="executive-note"><strong>Insight executivo:</strong> a concentração de gastos em poucos fornecedores reforça a necessidade de priorizar negociações estratégicas, gestão de risco e contratos com maior impacto financeiro.</p>
+
+      <div class="chart-card">
+        <div class="card-header">
+          <h3>Lead Time por Etapa</h3>
+          <p>Identificação dos gargalos do processo de compras.</p>
+        </div>
+        <canvas id="leadChart"></canvas>
+      </div>
+    </section>
+
+    <section id="fornecedores" class="section grid-2">
+      <div class="table-card">
+        <div class="card-header">
+          <h3>Performance de Fornecedores</h3>
+          <p>Ranking por prazo, qualidade e score geral.</p>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Fornecedor</th>
+              <th>Prazo</th>
+              <th>Qualidade</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Fornecedor A</td><td>98%</td><td>99%</td><td><strong>98,5</strong></td></tr>
+            <tr><td>Fornecedor B</td><td>95%</td><td>97%</td><td><strong>96,0</strong></td></tr>
+            <tr><td>Fornecedor C</td><td>92%</td><td>94%</td><td><strong>93,0</strong></td></tr>
+            <tr><td>Fornecedor D</td><td>88%</td><td>91%</td><td><strong>89,5</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="chart-card">
+        <div class="card-header">
+          <h3>Curva ABC de Fornecedores</h3>
+          <p>Priorização estratégica por concentração de gastos.</p>
+        </div>
+        <canvas id="abcChart"></canvas>
+      </div>
+    </section>
+
+    <section id="insights" class="section">
+      <div class="section-title">
+        <p>Insights Estratégicos</p>
+        <h2>O que os dados indicam para a gestão de Compras</h2>
+      </div>
+
+      <div class="insight-grid">
+        <article class="insight-card">
+          <span>01</span>
+          <h3>Peças automotivas concentram o maior potencial de savings</h3>
+          <p>A categoria apresentou redução simulada de 30%, indicando oportunidade de revisão de base de fornecedores e negociação técnica.</p>
+        </article>
+        <article class="insight-card">
+          <span>02</span>
+          <h3>Pedido até entrega representa o maior gargalo</h3>
+          <p>Metade do lead time está concentrada na etapa final, exigindo acompanhamento de SLA, planejamento e gestão de fornecedores críticos.</p>
+        </article>
+        <article class="insight-card">
+          <span>03</span>
+          <h3>Curva ABC direciona foco estratégico</h3>
+          <p>Fornecedores classe A exigem governança, contratos bem estruturados e acompanhamento de performance mais próximo.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="case" class="section case">
+      <div class="case-content">
+        <p class="eyebrow">Strategic Sourcing Case</p>
+        <h2>Como uma análise de mercado pode mudar o resultado de uma compra</h2>
+        <p>
+          Em compras estratégicas, a melhor decisão nem sempre está no fornecedor mais óbvio.
+          Mapear alternativas, identificar o fabricante original e comparar canais de fornecimento pode gerar grande impacto financeiro.
+        </p>
+
+        <div class="case-grid">
+          <div><span>Concessionária</span><strong>R$ 45.000</strong></div>
+          <div><span>Mercado paralelo</span><strong>R$ 22.000</strong></div>
+          <div class="best"><span>Distribuidor do fabricante</span><strong>R$ 12.000</strong></div>
+        </div>
+
+        <p class="case-note">
+          Resultado: decisão orientada por pesquisa, comparação de mercado e visão de TCO.
+        </p>
+      </div>
     </section>
   </main>
 
-  <footer>Procurement Analytics Dashboard · Dados simulados para portfólio profissional</footer>
+  <footer>
+    <strong>Procurement Analytics Dashboard</strong>
+    <span>Developed by Alessandro Guimarães Pereira</span>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
